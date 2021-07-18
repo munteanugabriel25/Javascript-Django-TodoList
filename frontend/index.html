@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/weather-icons.css">
+
+    </head>
+    <body>
+        <div id="section-main"> 
+            <div class="info__container">
+
+               <img class="info__background" src="images/mountains4.jpg">
+            </div>
+            <div class="main_container">
+                <!-- <img src="images/1.jpeg"> -->
+                <div class="modal__delete display__none">
+                    <div class="prompt__message__container">
+                        <p class="font_small"></p>
+                        <div class="prompt_message_buttons">
+                            <button value="yes" name="answer"> Yes</button>
+                            <button value="no" name="answer"> No</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal__completed display__none">
+                    <div class="prompt__message__container">
+                        <p class="font_small"></p>
+                        <div class="prompt_message_buttons_completed">
+                            <button value="yes" name="answer"> Yes</button>
+                            <button value="no" name="answer"> No</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal__postpone display__none">
+                    <div class="prompt__message__container">
+                        <p class="font_small"></p>
+                        <div>
+                            <div class="form_input__container"> 
+                                <label class="font_small_dark" for="deadline">Deadline<span>&#42;</span></label>
+                                <input type="date" id="deadline" name="deadline_date" required>
+                            </div>
+                            <div class="form_input__container"> 
+                                <label class="font_small_dark" for="hour">Hour</label>
+                                <input type="time" id="hour" name="deadline_time">
+                            </div>
+                        </div>
+                        <div class="prompt_message_buttons_postpone">
+                            <button value="yes" name="answer"> Confirm</button>
+                            <button value="no" name="answer"> Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal__update display__none">
+                    <div class="prompt__message__container">
+                        <p class="font_small">Set new details</p>
+                        <div class="form__update">
+                            <form class="form__add__task__modal" > 
+                                <div class="form_input__container"> 
+                                    <label class="font_small_dark" for="description_update">Description<span>&#42;</span></label>
+                                    <input type="text" id="description_update" name="description" />
+                                </div>
+                                <div class="form_input__container"> 
+                                    <label class="font_small_dark" for="location_update">Location</label>
+                                    <input type="text" id="location_update" name="location">
+                                </div>
+                                <div class="form_input__container"> 
+                                    <label class="font_small_dark" for="details_update">Details</label>
+                                    <input type="text" id="details_update" name="details">
+                                </div>
+                             
+                                <div class="form_input__container"> 
+                                    <label class="font_small_dark" for="status_update">Status<span>&#42;</span></label>
+                                    <select type="date" id="status_update" name="status" >
+                                        <option hidden disabled selected value> -- set status -- </option>
+                                        <option value="completed">Completed</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="postponed">Postponed</option>
+                                        <option value="delayed">Delayed</option>
+                                    </select>
+                                </div>
+                                <div class="form_input__container"> 
+                                    <label class="font_small_dark" for="importance_update">Importance<span>&#42;</span></label>
+                                    <select type="date" id="importance_update" name="importance" >
+                                        <option hidden disabled selected value> -- set importance -- </option>
+                                        <option value="high">High Priority</option>
+                                        <option value="medium">Medium Priority</option>
+                                        <option value="low">Low Priority</option>
+                                    </select>
+                                </div>
+                                <div class="form__message__container">
+                                 
+                                </div>
+                            </form>
+                        </div>
+                        <div class="prompt_message_buttons_update">
+                            <button value="yes" name="answer"> Confirm</button>
+                            <button value="no" name="answer"> Cancel</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu_sidebar">
+                   <ul class="menu_sidebar_list">
+                        <li class="menu__item display__none">
+                           <a class="menu__link font_small_bold" href="#" id="test__button" data-name="task"><i class="fas fa-home"></i>Home</a>
+                         </li>
+                         <li class="menu__item display__none  ">
+                            <a class="menu__link font_small_bold" href="#" data-name="add_task"><i class="fas fa-plus-square"></i>Add task</a>
+                          </li>
+                         <li class="menu__item display__none">
+                            <a class="menu__link font_small_bold" href="#" data-name="today_task"><i class="fas fa-calendar-day"></i></i>Today tasks</a>
+                        </li> 
+                        <li class="menu__item display__none">
+                            <a class="menu__link font_small_bold" href="#" data-name="week_task"><i class="fas fa-calendar-week"></i>Week tasks</a>
+                        </li> 
+                        <li class="menu__item display__none">
+                            <a class="menu__link font_small_bold" href="#" data-name="all_task"><i class="fas fa-folder-open"></i>All tasks</a>
+                        </li> 
+                        <li class="menu__item display__none">
+                            <a class="menu__link font_small_bold" href="#"><i class="fas fa-check link"></i>Tasks del</a>
+                        </li> 
+                        <li class="menu__item display__none">
+                            <a class="menu__link font_small_bold" href="#"><i class="fas fa-cog"></i>Settings</a>
+                        </li>
+                        <li class="menu__item display__none">
+                            <a class="menu__link font_small_bold" href="#" data-name="logout"><i class="fas fa-power-off"></i>Log out </a>
+                        </li> 
+                         <li class="menu__item">
+                            <a class="menu__link font_small_bold" href="#" data-name="login"><i class="fas fa-sign-in-alt"></i>Log in </a>
+                        </li>  
+                   </ul>
+                </div>
+
+                
+                <div class="action">
+                   <!-- COMPONENT   all tasks screen  -->
+                    <div class="action__container task display__off background_shadow">
+                        <div class="table__container">
+                            <table id="all_tasks_table">
+                                <thead >
+                                    <tr> <!-- style="background-color: red;"-->
+                                        <th style="text-align:center"></th>
+                                        <th  style="text-align:center"><p class="font_small"></p></th>
+                                        <th style="text-align:center"><p class="font_small">All tasks</p> </th>
+                                       
+                                        <th colspan=4 style="text-align:center">
+                                            <select data-filterby="importance" name="importance" >
+                                                <option hidden disabled selected value="">importance</option>
+                                                <option value="">no filter</option>
+                                                <option value="high">High</option>
+                                                <option value="medium">Medium</option>
+                                                <option value="low">Low</option>
+                                            </select>
+                                        </th>
+                                        <th colspan=4 style="text-align:center">
+                                            <select data-filterby="status" name="status" >
+                                                <option hidden disabled selected value="">status</option>
+                                                <option value="">no filter</option>
+                                                <option value="completed">Completed</option>
+                                                <option value="pending">Pending</option>
+                                                <option value="postponed">Postponed</option>
+                                                <option value="delayed">Delayed</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- tasks in here -->
+                                </body> 
+                            </table>
+                        </div>
+
+
+                    </div>
+
+                    <!-- COMPONENT   today tasks screen  -->
+                    <div class="action__container today_task display__off background_shadow">
+                        <div class="table__container">
+                            <table id="today_tasks_table">
+                                <thead >
+                                    <tr> 
+                                        <th style="text-align:center"></th>
+                                        <th  style="text-align:center"><p class="font_small"></p></th>
+                                        <th style="text-align:center"><p class="font_small">Today Tasks</p> </th>
+                                       
+                                        <th colspan=4 style="text-align:center">
+                                            <select data-filterby="importance" name="importance" >
+                                                <option hidden disabled selected value="">importance</option>
+                                                <option value="">no filter</option>
+                                                <option value="high">High</option>
+                                                <option value="medium">Medium</option>
+                                                <option value="low">Low</option>
+                                            </select>
+                                        </th>
+                                        <th colspan=4 style="text-align:center">
+                                            <select data-filterby="status" name="status" >
+                                                <option hidden disabled selected value="">status</option>
+                                                <option value="">no filter</option>
+                                                <option value="completed">Completed</option>
+                                                <option value="pending">Pending</option>
+                                                <option value="postponed">Postponed</option>
+                                                <option value="delayed">Delayed</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- tasks in here -->
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <!-- COMPONENT   week tasks screen  -->
+                    <div class="action__container week_task display__off background_shadow">
+                        <div class="table__container">
+                            <table id="week_tasks_table">
+                                <thead >
+                                    <tr> 
+                                        <th style="text-align:center"></th>
+                                        <th  style="text-align:center"><p class="font_small"></p></th>
+                                        <th style="text-align:center"><p class="font_small">Week Tasks</p> </th>
+                                       
+                                        <th colspan=4 style="text-align:center">
+                                            <select data-filterby="importance" name="importance" >
+                                                <option hidden disabled selected value="">importance</option>
+                                                <option value="">no filter</option>
+                                                <option value="high">High</option>
+                                                <option value="medium">Medium</option>
+                                                <option value="low">Low</option>
+                                            </select>
+                                        </th>
+                                        <th colspan=4 style="text-align:center">
+                                            <select data-filterby="status" name="status" >
+                                                <option hidden disabled selected value="">status</option>
+                                                <option value="">no filter</option>
+                                                <option value="completed">Completed</option>
+                                                <option value="pending">Pending</option>
+                                                <option value="postponed">Postponed</option>
+                                                <option value="delayed">Delayed</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- tasks in here -->
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- COMPONENT  add task screen  -->
+                    <div class="action__container add_task display__off background_shadow">
+                        <p class="font_small mg__lt20 mg__tp10"> Add a new task</p>
+                        
+                        <form id="add_task_form" class="form__add__task"> 
+                            <div class="form_input__container"> 
+                                <label class="font_small_dark" for="description">Description<span>&#42;</span></label>
+                                <input type="text" id="description" name="description" required>    
+                            </div>
+                            <div class="form_input__container"> 
+                                <label class="font_small_dark" for="location">Location</label>
+                                <input type="text" id="location" name="location">
+                            </div>
+                            <div class="form_input__container"> 
+                                <label class="font_small_dark" for="details">Details</label>
+                                <input type="text" id="details" name="details">
+                            </div>
+                            <div class="form_input__container"> 
+                                <label class="font_small_dark" for="deadline">Deadline<span>&#42;</span></label>
+                                <input type="date" id="deadline" name="deadline_date" required>
+                            </div>
+                            <div class="form_input__container"> 
+                                <label class="font_small_dark" for="hour">Hour</label>
+                                <input type="time" id="hour" name="deadline_time">
+                            </div>
+                            <div class="form_input__container"> 
+                                <label class="font_small_dark" for="importance">Importance<span>&#42;</span></label>
+                                <select type="date" id="importance" name="importance" required>
+                                    <option hidden disabled selected value> -- set importance -- </option>
+                                    <option value="high">High Priority</option>
+                                    <option value="medium">Medium Priority</option>
+                                    <option value="low">Low Priority</option>
+                                </select>
+                            </div>
+                            <div class="form__message__container">
+                             
+                            </div>
+                            <button type="submit" id="submit_task_btn">Save</button>
+                        </form>
+                    </div>
+
+                    <!-- COMPONENT  login/register screen  -->
+                    <div class="action__container login_register">
+                        <div class="login_register_wraper background_shadow">
+                        <div class="login__register__top">
+                            <p class="font_esm" id="text_reg_log"> Login</p>
+                            <div class="slide__button__bg">
+                            <button id="swipe_reg_login" type="button"class="swipe__button register__position"></button>
+                            </div>
+                            
+                        </div>
+                    
+                        
+                        <div id="register" class="form__register__container display__none">
+                            <form id="register__form" class="form__registerlogin ">
+                                <div class="form_input__container"> 
+                                    <label class="font_small_dark" for="reg_username">Username<span>&#42;</span></label>
+                                    <input type="text" required id="username" name="username">
+                                    <p class="hidden" for="reg_username">This field is required<span>&#42;</span></p>
+                                </div>
+                                <div class="form_input__container"> 
+                                    <label class="font_small_dark" for="reg_email">E-mail</label>
+                                    <input type="email" required id="reg_email" name="email">
+                                </div>
+                                <div class="form_input__container"> 
+                                    <label class="font_small_dark" for="reg_password_1">Password</label>
+                                    <input type="password" required id="reg_password_1" name="password">
+                                </div>
+                                <div class="form_input__container"> 
+                                    <label class="font_small_dark" for="reg_password_2">Confirm password<span>&#42;</span></label>
+                                    <input type="password"  required id="reg_password_2" name="password2">
+                                </div>
+                                <div class="form__message__container">
+                                    
+                                </div>
+                                <button class="mg__tp10" type="submit" id="register_btn">Register</button>
+                              
+                            </form>
+                        </div>
+                    
+                        <div id="login" class="form__login__container">
+                            <form id="login__form" class="form__login__register" method="POST">
+                                <div class="form_input__container"> 
+                                    <label class="font_small_dark" for="log_username">Username<span>&#42;</span></label>
+                                    <input type="text" required id="log_username" name="username">
+                                    <p class="hidden" for="username">This field is required<span>&#42;</span></p>
+                                </div>
+                                <div class="form_input__container"> 
+                                    <label class="font_small_dark" for="log_password_1">Confirm password<span>&#42;</span></label>
+                                    <input type="password"  required id="log_password_1" name="password">
+                                </div>
+                                <div class="form__message__container">
+                             
+                                </div>
+                                <button class="mg__tp10" type="submit" id="login_btn">Login</button>
+                               
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+
+                    
+
+                </div>                
+            </div>            
+        </div>
+        
+        <script src="script.js" async defer></script>
+    </body>
+</html>
